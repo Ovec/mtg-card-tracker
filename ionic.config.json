@@ -1,0 +1,7 @@
+{
+  "name": "MTG card tracker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
