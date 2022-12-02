@@ -1,5 +1,7 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import CardRow from '../components/Card/CardRowComponent';
+// import ExploreContainer from '../components/ExploreContainer';
+// import SerachContainer from '../components/Search/SearchContainer';
 import './Tab1.css';
 
 const Tab1: React.FC = () => {
@@ -7,16 +9,17 @@ const Tab1: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Tab 1</IonTitle>
+          <IonTitle>MTG card tracker</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Tab 1</IonTitle>
+            <IonTitle size="large">MTG card tracker</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Tab 1 page" />
+        <CardRow />
+        <CardRow />
       </IonContent>
     </IonPage>
   );
