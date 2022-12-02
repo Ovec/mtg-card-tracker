@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'cz.mireksirina.mtg.tracker',
   appName: 'MTG card tracker',
   webDir: 'build',
   bundledWebRuntime: false
