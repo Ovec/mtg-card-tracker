@@ -1,7 +1,5 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import CardRow from '../components/Card/CardRowComponent';
-// import ExploreContainer from '../components/ExploreContainer';
-// import SerachContainer from '../components/Search/SearchContainer';
 import './Tab1.css';
 
 const Tab1: React.FC = () => {
