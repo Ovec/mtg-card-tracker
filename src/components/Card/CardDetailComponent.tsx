@@ -2,6 +2,7 @@ import { IonCard, IonCardContent, IonCardHeader, IonContent, IonFab, IonFabButto
 import { chevronUpCircle, globe, remove, cart } from 'ionicons/icons';
 import CardFaceList from './CardFaceListComponent';
 import CardLegalities from './CardLegalities';
+import CardSet from './CardSetComponent';
 import { Card } from './CardType';
 
 const CardDetail: React.FC<{ card: Card; }> = ({ card }) => {
@@ -14,13 +15,14 @@ const CardDetail: React.FC<{ card: Card; }> = ({ card }) => {
 
         <IonContent fullscreen>
             <IonCard>
-                <IonCardHeader>
+                <IonCardHeader className='ion-text-center'>
                     <div>
                         <img alt={card.name} src={card.image_uris.normal} />
                     </div>
                 </IonCardHeader>
                 <IonCardContent>
                     <CardFaceList faces={card.card_faces} />
+                    <CardSet set={card.set_name} setUrl={card.scryfall_set_uri} />
                     <CardLegalities legalities={card.legalities} />
                 </IonCardContent>
             </IonCard>
