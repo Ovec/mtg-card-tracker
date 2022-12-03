@@ -1,17 +1,25 @@
-import { IonContent, IonHeader, IonItem, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonPage } from '@ionic/react';
 import SeachToolbar from '../components/Search/SearchToolbarComponent';
 import SearchResults from '../components/Search/SearchResultsComponent';
 import './Tab4.css';
+import { useState, useEffect, Dispatch, SetStateAction } from 'react';
+import fetchCardNames from '../api/cardNames';
 
 
+const Tab4: React.FC<{ loading: boolean, setLoading: Dispatch<SetStateAction<boolean>> }> = ({ loading, setLoading }) => {
+  const result: string[] = [];
+  const [cardNames, setCardNames] = useState([])
+  const [selectedCardNames, setSelectedCardNames] = useState(result)
 
 
-const Tab4: React.FC = () => {
+  useEffect(() => {
+    fetchCardNames(setCardNames);
+  }, [])
+
   return (
     <IonPage>
-      <SeachToolbar />
-      <SearchResults />
+      <SeachToolbar cardNames={cardNames} setSelectedCardnames={setSelectedCardNames} loading={loading} setLoading={setLoading} />
+      <SearchResults selectedCardNames={selectedCardNames} />
     </IonPage>
   );
 };

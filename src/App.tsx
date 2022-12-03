@@ -34,11 +34,16 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { useState } from 'react';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
+
+
+const App: React.FC = () => {
+  const [loading, setLoading] = useState(false)
+
+  return <IonApp>
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
@@ -52,7 +57,7 @@ const App: React.FC = () => (
             <Tab3 />
           </Route>
           <Route path="/tab4">
-            <Tab4 />
+            <Tab4 loading={loading} setLoading={setLoading} />
           </Route>
           <Route exact path="/">
             <Redirect to="/tab1" />
@@ -67,10 +72,10 @@ const App: React.FC = () => (
             <IonIcon icon={ellipse} />
             <IonLabel>Card Search component</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
+          {/* <IonTabButton tab="tab3" href="/tab3">
             <IonIcon icon={square} />
             <IonLabel>Card Detail</IonLabel>
-          </IonTabButton>
+          </IonTabButton> */}
           <IonTabButton tab="tab4" href="/tab4">
             <IonIcon icon={square} />
             <IonLabel>Search</IonLabel>
@@ -79,6 +84,6 @@ const App: React.FC = () => (
       </IonTabs>
     </IonReactRouter>
   </IonApp>
-);
+};
 
 export default App;

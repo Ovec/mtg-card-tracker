@@ -1,13 +1,12 @@
 import { IonContent, IonItem, IonList } from '@ionic/react';
 
-const SearchResults = () => {
+const SearchResults: React.FC<{ selectedCardNames: string[] }> = ({ selectedCardNames }) => {
     return (
         <IonContent>
             <IonList>
-                <IonItem>Result 1 kono</IonItem>
-                <IonItem>Result 1 kjd aldkj aslkdfsdfsdf fs dfsd fsdf sdf sdfsdf sdfj aslkdj</IonItem>
-                <IonItem>Result 1</IonItem>
-                <IonItem>Result 1</IonItem>
+                {selectedCardNames.map(name => {
+                    return <IonItem key={name}>{name}</IonItem>
+                })}
             </IonList>
         </IonContent>
     );
