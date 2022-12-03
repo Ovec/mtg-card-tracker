@@ -1,4 +1,4 @@
-import { IonHeader, IonProgressBar, IonSearchbar, IonTitle, IonToolbar } from '@ionic/react';
+import { IonHeader, IonProgressBar, IonSearchbar, IonTitle, IonToolbar, UseIonRouterResult } from '@ionic/react';
 import { Dispatch, SetStateAction } from 'react';
 
 const SeachToolbar: React.FC<{
@@ -19,6 +19,7 @@ const SeachToolbar: React.FC<{
             setSelectedCardnames([])
         }
         setLoading(false)
+
     }
 
 
