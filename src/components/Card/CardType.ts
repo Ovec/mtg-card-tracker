@@ -95,6 +95,7 @@ export interface Card {
     nonfoil: boolean;
     finishes: string[];
     oversized: boolean;
+    oracle_text: string;
     promo: boolean;
     reprint: boolean;
     variation: boolean;
