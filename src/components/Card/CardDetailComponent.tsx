@@ -1,15 +1,27 @@
-import { IonCard, IonCardContent, IonCardHeader, IonContent, IonFab, IonFabButton, IonFabList, IonHeader, IonIcon, IonTitle, IonToolbar } from '@ionic/react';
-import { chevronUpCircle, globe, remove, cart } from 'ionicons/icons';
+import { IonBackButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonContent, IonFab, IonFabButton, IonFabList, IonHeader, IonIcon, IonProgressBar, IonTitle, IonToolbar } from '@ionic/react';
+import { cart, chevronUpCircle, globe, remove } from 'ionicons/icons';
+import CardFaceDisplay from './CardFaceComponent';
 import CardFaceList from './CardFaceListComponent';
 import CardLegalities from './CardLegalities';
 import CardSet from './CardSetComponent';
 import { Card } from './CardType';
 
-const CardDetail: React.FC<{ card: Card; }> = ({ card }) => {
-    return (<>
+const CardDetail: React.FC<{ cardDetail: Card; loading: boolean }> = ({ cardDetail, loading }) => {
+    return loading || !cardDetail.name ? (<IonHeader>
+        <IonToolbar>
+            <IonButtons slot="start">
+                <IonBackButton />
+            </IonButtons>
+            <IonTitle>Loading...</IonTitle>
+            <IonProgressBar type="indeterminate"></IonProgressBar>
+        </IonToolbar>
+    </IonHeader>) : (<>
         <IonHeader>
             <IonToolbar>
-                <IonTitle>{card.name}</IonTitle>
+                <IonButtons slot="start">
+                    <IonBackButton />
+                </IonButtons>
+                <IonTitle>{cardDetail.name}</IonTitle>
             </IonToolbar>
         </IonHeader>
 
@@ -17,13 +29,25 @@ const CardDetail: React.FC<{ card: Card; }> = ({ card }) => {
             <IonCard>
                 <IonCardHeader className='ion-text-center'>
                     <div>
-                        <img alt={card.name} src={card.image_uris.normal} />
+                        <img alt={cardDetail.name} src={cardDetail.image_uris.normal} />
                     </div>
                 </IonCardHeader>
                 <IonCardContent>
-                    <CardFaceList faces={card.card_faces} />
-                    <CardSet set={card.set_name} setUrl={card.scryfall_set_uri} />
-                    <CardLegalities legalities={card.legalities} />
+                    {
+                        cardDetail.card_faces ? <CardFaceList faces={cardDetail.card_faces} />
+                            : <CardFaceDisplay face={{
+                                object: cardDetail.object,
+                                name: cardDetail.name,
+                                mana_cost: cardDetail.mana_cost,
+                                type_line: cardDetail.type_line,
+                                oracle_text: cardDetail.oracle_text,
+                                artist: cardDetail.artist,
+                                artist_id: cardDetail.artist,
+                            }} key={cardDetail.name} />
+                    }
+
+                    <CardSet set={cardDetail.set_name} setUrl={cardDetail.scryfall_set_uri} />
+                    <CardLegalities legalities={cardDetail.legalities} />
                 </IonCardContent>
             </IonCard>
             <IonFab slot="fixed" vertical="bottom" horizontal="end">
@@ -34,10 +58,10 @@ const CardDetail: React.FC<{ card: Card; }> = ({ card }) => {
                     <IonFabButton color="danger">
                         <IonIcon icon={remove}></IonIcon>
                     </IonFabButton>
-                    <IonFabButton color="success" href={card.purchase_uris.cardmarket}>
-                        <IonIcon icon={cart}></IonIcon>
-                    </IonFabButton>
-                    <IonFabButton color="primary" href={card.related_uris.gatherer}>
+                    {cardDetail.purchase_uris?.cardmarket
+                        && <IonFabButton color="success" href={cardDetail.purchase_uris.cardmarket}><IonIcon icon={cart}></IonIcon>
+                        </IonFabButton>}
+                    <IonFabButton color="primary" href={cardDetail.related_uris.gatherer}>
                         <IonIcon icon={globe}></IonIcon>
                     </IonFabButton>
                 </IonFabList>
