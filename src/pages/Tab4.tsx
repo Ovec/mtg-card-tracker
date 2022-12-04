@@ -6,7 +6,10 @@ import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import fetchCardNames from '../api/cardNames';
 
 
-const Tab4: React.FC<{ loading: boolean, setLoading: Dispatch<SetStateAction<boolean>> }> = ({ loading, setLoading }) => {
+const Tab4: React.FC<{
+  loading: boolean,
+  setLoading: Dispatch<SetStateAction<boolean>>
+}> = ({ loading, setLoading }) => {
   const result: string[] = [];
   const [cardNames, setCardNames] = useState([])
   const [selectedCardNames, setSelectedCardNames] = useState(result)
@@ -18,8 +21,16 @@ const Tab4: React.FC<{ loading: boolean, setLoading: Dispatch<SetStateAction<boo
 
   return (
     <IonPage>
-      <SeachToolbar cardNames={cardNames} setSelectedCardnames={setSelectedCardNames} loading={loading} setLoading={setLoading} />
-      <SearchResults selectedCardNames={selectedCardNames} />
+      <SeachToolbar
+        cardNames={cardNames}
+        setSelectedCardnames={setSelectedCardNames}
+        loading={loading}
+        setLoading={setLoading}
+      />
+
+      <SearchResults
+        selectedCardNames={selectedCardNames}
+      />
     </IonPage>
   );
 };

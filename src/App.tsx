@@ -35,13 +35,17 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import { useState } from 'react';
+import { Card } from './components/Card/CardType';
 
 setupIonicReact();
 
 
 
 const App: React.FC = () => {
+  const EmptyCard: Partial<Card> = {};
   const [loading, setLoading] = useState(false)
+
+  // history.push('/tab4')
 
   return <IonApp>
     <IonReactRouter>
@@ -53,8 +57,8 @@ const App: React.FC = () => {
           <Route exact path="/tab2">
             <Tab2 />
           </Route>
-          <Route path="/tab3">
-            <Tab3 />
+          <Route path="/tab3/:searchTerm">
+            <Tab3 loading={loading} setLoading={setLoading} />
           </Route>
           <Route path="/tab4">
             <Tab4 loading={loading} setLoading={setLoading} />
@@ -72,10 +76,10 @@ const App: React.FC = () => {
             <IonIcon icon={ellipse} />
             <IonLabel>Card Search component</IonLabel>
           </IonTabButton>
-          {/* <IonTabButton tab="tab3" href="/tab3">
+          <IonTabButton tab="tab3" href="/tab3">
             <IonIcon icon={square} />
             <IonLabel>Card Detail</IonLabel>
-          </IonTabButton> */}
+          </IonTabButton>
           <IonTabButton tab="tab4" href="/tab4">
             <IonIcon icon={square} />
             <IonLabel>Search</IonLabel>
