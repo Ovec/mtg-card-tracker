@@ -27,7 +27,9 @@ const CardRow: React.FC<{
                         <IonCardTitle>{card.name}</IonCardTitle>
                     </IonCardHeader>
                         <IonCardContent>
-                            {card.oracle_text}
+                            {card.oracle_text.length > 70
+                                ? card.oracle_text.substring(0, 70) + '...'
+                                : card.oracle_text}
                         </IonCardContent>
                     </IonCol>
                 </IonRow>
