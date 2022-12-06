@@ -1,4 +1,5 @@
-import { IonContent, IonHeader, IonPage, IonProgressBar, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonIcon, IonLabel, IonPage, IonProgressBar, IonTabBar, IonTabButton, IonTitle, IonToolbar } from '@ionic/react';
+import { search } from 'ionicons/icons';
 import { Dispatch, SetStateAction, useEffect } from 'react';
 import CardList from '../components/Card/CardListComponent'
 import { Card } from '../components/Card/CardType';
@@ -24,12 +25,14 @@ const ListPage: React.FC<{
       <IonContent fullscreen>
         {cardList.length === 0 ? <SearchContainer /> :
           <CardList cards={cardList} setCardList={setCardList} setSearchTerm={setSearchTerm} />}
-
-        card list component
-        card component
-        detail handle
-        delete handler
       </IonContent>
+      {cardList.length > 0 &&
+        <IonTabBar slot="bottom">
+          <IonTabButton tab="tab4" href="/tab4">
+            <IonIcon icon={search} />
+            <IonLabel>Search</IonLabel>
+          </IonTabButton>
+        </IonTabBar>}
     </IonPage>
   );
 };

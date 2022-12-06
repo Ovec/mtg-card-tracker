@@ -1,15 +1,12 @@
 import { useHistory } from "react-router-dom";
-import { IonBackButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonContent, IonFab, IonFabButton, IonFabList, IonHeader, IonIcon, IonProgressBar, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCol, IonContent, IonFab, IonFabButton, IonFabList, IonHeader, IonIcon, IonProgressBar, IonRow, IonSkeletonText, IonTitle, IonToolbar } from '@ionic/react';
 import { add, cart, chevronUpCircle, globe, remove } from 'ionicons/icons';
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import CardFaceDisplay from './CardFaceComponent';
 import CardFaceList from './CardFaceListComponent';
 import CardLegalities from './CardLegalities';
 import CardSet from './CardSetComponent';
 import { Card } from './CardType';
-
-
-
 
 const CardDetail: React.FC<{
     cardDetail: Card;
@@ -18,6 +15,8 @@ const CardDetail: React.FC<{
     handler: Dispatch<SetStateAction<any>>
 }> = ({ cardDetail, loading, inList, handler }) => {
     const history = useHistory();
+
+    const [imgLoaded, setImgLoaded] = useState(false);
 
     return loading || !cardDetail.name ? (<IonHeader>
         <IonToolbar>
@@ -39,10 +38,8 @@ const CardDetail: React.FC<{
 
         <IonContent fullscreen>
             <IonCard>
-                <IonCardHeader className='ion-text-center'>
-                    <div>
-                        <img alt={cardDetail.name} src={cardDetail.image_uris.normal} />
-                    </div>
+                <IonCardHeader className='ion-text-center' >
+                    <img style={imgLoaded ? {} : { display: 'none' }} alt={cardDetail.name} src={cardDetail.image_uris.normal} onLoad={() => setImgLoaded(true)} />
                 </IonCardHeader>
                 <IonCardContent>
                     {

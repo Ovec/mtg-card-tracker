@@ -11,7 +11,11 @@ const CardRow: React.FC<{
     const history = useHistory();
 
     return (
-        <IonItemSliding key={card.id}>
+        <IonItemSliding key={card.id} onIonDrag={(ev) => {
+            ev.target.getSlidingRatio().then(ratio => {
+                if (ratio > 2) cardDeleteHandler(card.id)
+            });
+        }}>
             <IonItem>
                 <IonRow onClick={() => {
                     cardClickHandler(card.id)

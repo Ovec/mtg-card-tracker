@@ -10,7 +10,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { square, triangle } from 'ionicons/icons';
+import { search, square, triangle } from 'ionicons/icons';
 import SearchPage from './pages/searchPage';
 import DetailPage from './pages/detailPage';
 import ListPage from './pages/listPage';
@@ -56,51 +56,47 @@ const App: React.FC = () => {
 
   return <IonApp>
     <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <ListPage loading={loading}
-              cardList={cardList}
-              setLoading={setLoading}
-              setCardList={setCardList}
-              setSearchTerm={setSearchTerm}
-            />
-          </Route>
-          <Route path="/tab3">
-            <DetailPage
-              loading={loading}
-              setLoading={setLoading}
-              cardList={cardList}
-              setCardList={setCardList}
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm}
-              cardDetail={cardDetail as Card}
-              setCardDetail={setCardDetail}
+      {/* <IonTabs> */}
+      <IonRouterOutlet>
+        <Route exact path="/tab1">
+          <ListPage loading={loading}
+            cardList={cardList}
+            setLoading={setLoading}
+            setCardList={setCardList}
+            setSearchTerm={setSearchTerm}
+          />
+        </Route>
+        <Route path="/tab3">
+          <DetailPage
+            loading={loading}
+            setLoading={setLoading}
+            cardList={cardList}
+            setCardList={setCardList}
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            cardDetail={cardDetail as Card}
+            setCardDetail={setCardDetail}
 
-            />
-          </Route>
-          <Route path="/tab4">
-            <SearchPage
-              loading={loading}
-              setLoading={setLoading}
-              setSearchTerm={setSearchTerm}
-            />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/tab1" />
-          </Route>
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon icon={triangle} />
-            <IonLabel>Enter page</IonLabel>
-          </IonTabButton>
+          />
+        </Route>
+        <Route path="/tab4">
+          <SearchPage
+            loading={loading}
+            setLoading={setLoading}
+            setSearchTerm={setSearchTerm}
+          />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/tab1" />
+        </Route>
+      </IonRouterOutlet>
+      {/* <IonTabBar slot="bottom">
           <IonTabButton tab="tab4" href="/tab4">
-            <IonIcon icon={square} />
+            <IonIcon icon={search} />
             <IonLabel>Search</IonLabel>
           </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
+        </IonTabBar> */}
+      {/* </IonTabs> */}
     </IonReactRouter>
   </IonApp>
 };
