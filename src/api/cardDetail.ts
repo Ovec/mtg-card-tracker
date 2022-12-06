@@ -17,8 +17,6 @@ const fetchCard = async (searchTerm: string,
 
     } catch (error) {
         console.warn(error)
-        // setError('apinotreachable')
-        // openNotificationWithIcon('error', 'API error', 'Recept se nepodařilo načíst')
     }
 
 }

@@ -19,23 +19,8 @@ const fetchCardNames = async (setCardNames: any) => {
         } else {
             setCardNames(JSON.parse(await get("cardNames") as string));
         }
-
-
-
-        // const response = await axios.get('https://api.scryfall.com/catalog/card-names')
-
-        // console.warn(storedEtag, response.headers, response.statusText)
-
-
-
-        // const response = await axios.get(`https://exercise.cngroup.dk/api/recipes${slug ? `/${slug}` : ''}`)
-        // setError(false)
-        // setLoading(false)
-        // setData(response.data)
     } catch (error) {
         console.warn(error)
-        // setError('apinotreachable')
-        // openNotificationWithIcon('error', 'API error', 'Recept se nepodařilo načíst')
     }
 
 }

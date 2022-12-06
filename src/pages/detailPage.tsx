@@ -1,5 +1,5 @@
 import { IonPage } from '@ionic/react';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect } from 'react';
 import fetchCard from '../api/cardDetail';
 import CardDetail from '../components/Card/CardDetailComponent';
 import { Card } from '../components/Card/CardType';
@@ -11,7 +11,6 @@ const DetailPage: React.FC<{
   cardDetail: Card,
   cardList: Card[],
   searchTerm: string,
-  setSearchTerm: Dispatch<SetStateAction<string>>,
   setLoading: Dispatch<SetStateAction<boolean>>,
   setCardList: Dispatch<SetStateAction<Card[]>>,
   setCardDetail: Dispatch<SetStateAction<Partial<Card>>>
@@ -21,7 +20,6 @@ const DetailPage: React.FC<{
   searchTerm,
   setCardList,
   setLoading,
-  setSearchTerm,
   setCardDetail }) => {
 
 

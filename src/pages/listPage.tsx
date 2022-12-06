@@ -1,6 +1,6 @@
 import { IonContent, IonHeader, IonIcon, IonLabel, IonPage, IonProgressBar, IonTabBar, IonTabButton, IonTitle, IonToolbar } from '@ionic/react';
 import { search } from 'ionicons/icons';
-import { Dispatch, SetStateAction, useEffect } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import CardList from '../components/Card/CardListComponent'
 import { Card } from '../components/Card/CardType';
 import SearchContainer from '../components/Search/SearchContainer';

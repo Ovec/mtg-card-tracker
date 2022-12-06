@@ -1,16 +1,10 @@
 import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
-  IonIcon,
-  IonLabel,
   IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { search, square, triangle } from 'ionicons/icons';
 import SearchPage from './pages/searchPage';
 import DetailPage from './pages/detailPage';
 import ListPage from './pages/listPage';
@@ -56,7 +50,6 @@ const App: React.FC = () => {
 
   return <IonApp>
     <IonReactRouter>
-      {/* <IonTabs> */}
       <IonRouterOutlet>
         <Route exact path="/tab1">
           <ListPage loading={loading}
@@ -73,7 +66,6 @@ const App: React.FC = () => {
             cardList={cardList}
             setCardList={setCardList}
             searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
             cardDetail={cardDetail as Card}
             setCardDetail={setCardDetail}
 
@@ -90,13 +82,6 @@ const App: React.FC = () => {
           <Redirect to="/tab1" />
         </Route>
       </IonRouterOutlet>
-      {/* <IonTabBar slot="bottom">
-          <IonTabButton tab="tab4" href="/tab4">
-            <IonIcon icon={search} />
-            <IonLabel>Search</IonLabel>
-          </IonTabButton>
-        </IonTabBar> */}
-      {/* </IonTabs> */}
     </IonReactRouter>
   </IonApp>
 };

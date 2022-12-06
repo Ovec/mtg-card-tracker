@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom";
-import { IonBackButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCol, IonContent, IonFab, IonFabButton, IonFabList, IonHeader, IonIcon, IonProgressBar, IonRow, IonSkeletonText, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonContent, IonFab, IonFabButton, IonFabList, IonHeader, IonIcon, IonProgressBar, IonTitle, IonToolbar } from '@ionic/react';
 import { add, cart, chevronUpCircle, globe, remove } from 'ionicons/icons';
 import { Dispatch, SetStateAction, useState } from 'react';
 import CardFaceDisplay from './CardFaceComponent';
