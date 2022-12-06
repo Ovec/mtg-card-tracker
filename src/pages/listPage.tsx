@@ -3,9 +3,9 @@ import { Dispatch, SetStateAction, useEffect } from 'react';
 import CardList from '../components/Card/CardListComponent'
 import { Card } from '../components/Card/CardType';
 import SearchContainer from '../components/Search/SearchContainer';
-import './Tab1.css';
+import './listPage.css';
 
-const Tab1: React.FC<{
+const ListPage: React.FC<{
   loading: boolean,
   cardList: Card[],
   setLoading: Dispatch<SetStateAction<boolean>>
@@ -34,4 +34,4 @@ const Tab1: React.FC<{
   );
 };
 
-export default Tab1;
+export default ListPage;

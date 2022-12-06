@@ -10,10 +10,10 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab3 from './pages/Tab3';
-import Tab4 from './pages/Tab4';
+import { square, triangle } from 'ionicons/icons';
+import SearchPage from './pages/searchPage';
+import DetailPage from './pages/detailPage';
+import ListPage from './pages/listPage';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -37,6 +37,7 @@ import { useEffect, useState } from 'react';
 import getCardList from './api/cardList';
 import { Card } from './components/Card/CardType';
 
+
 setupIonicReact();
 
 
@@ -58,7 +59,7 @@ const App: React.FC = () => {
       <IonTabs>
         <IonRouterOutlet>
           <Route exact path="/tab1">
-            <Tab1 loading={loading}
+            <ListPage loading={loading}
               cardList={cardList}
               setLoading={setLoading}
               setCardList={setCardList}
@@ -66,7 +67,7 @@ const App: React.FC = () => {
             />
           </Route>
           <Route path="/tab3">
-            <Tab3
+            <DetailPage
               loading={loading}
               setLoading={setLoading}
               cardList={cardList}
@@ -79,7 +80,7 @@ const App: React.FC = () => {
             />
           </Route>
           <Route path="/tab4">
-            <Tab4
+            <SearchPage
               loading={loading}
               setLoading={setLoading}
               setSearchTerm={setSearchTerm}

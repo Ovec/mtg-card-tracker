@@ -1,12 +1,12 @@
 import { IonPage } from '@ionic/react';
 import SeachToolbar from '../components/Search/SearchToolbarComponent';
 import SearchResults from '../components/Search/SearchResultsComponent';
-import './Tab4.css';
+import './searchPage.css';
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import fetchCardNames from '../api/cardNames';
 
 
-const Tab4: React.FC<{
+const SearchPage: React.FC<{
   loading: boolean,
   setLoading: Dispatch<SetStateAction<boolean>>
   setSearchTerm: Dispatch<SetStateAction<string>>
@@ -37,4 +37,4 @@ const Tab4: React.FC<{
   );
 };
 
-export default Tab4;
+export default SearchPage;

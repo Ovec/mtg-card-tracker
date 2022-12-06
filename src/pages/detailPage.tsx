@@ -4,9 +4,9 @@ import fetchCard from '../api/cardDetail';
 import CardDetail from '../components/Card/CardDetailComponent';
 import { Card } from '../components/Card/CardType';
 import { save } from '../storage/cardList';
-import './Tab3.css';
+import './detailPage.css';
 
-const Tab3: React.FC<{
+const DetailPage: React.FC<{
   loading: boolean,
   cardDetail: Card,
   cardList: Card[],
@@ -43,7 +43,7 @@ const Tab3: React.FC<{
 
           } : async (card) => {
             console.warn("add to list trigger")
-            await save(cardList)
+            await save([...cardList, card])
             setCardList([...cardList, card])
 
           }
@@ -53,6 +53,6 @@ const Tab3: React.FC<{
     );
   };
 
-export default Tab3;
+export default DetailPage;
 
 
