@@ -13,7 +13,6 @@ export const get = async (): Promise<Card[]> => {
     return JSON.parse(data)
 }
 
-
 export const find = async (card: Card) => {
     const list = await get()
     return list.find(e => e.id === card.id)

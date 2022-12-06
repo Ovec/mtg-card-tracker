@@ -2,7 +2,7 @@ import './SearchContainer.css';
 import SearchButton from './SearchButton';
 
 
-const SerachContainer = () => {
+const SearchContainer = () => {
     return (
         <div className="container">
             <SearchButton />
@@ -11,4 +11,4 @@ const SerachContainer = () => {
     );
 };
 
-export default SerachContainer;
+export default SearchContainer;

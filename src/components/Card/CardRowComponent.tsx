@@ -1,26 +1,37 @@
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonGrid, IonRow } from '@ionic/react';
+import { useHistory } from "react-router-dom";
+import { IonCardContent, IonCardHeader, IonCardTitle, IonCol, IonItem, IonItemOption, IonItemOptions, IonItemSliding, IonRow } from '@ionic/react';
+import { Dispatch } from 'react';
+import { Card } from './CardType';
 
-const CardRow = () => {
+const CardRow: React.FC<{
+    card: Card,
+    cardDeleteHandler: Dispatch<any>,
+    cardClickHandler: Dispatch<any>
+}> = ({ card, cardDeleteHandler, cardClickHandler }) => {
+    const history = useHistory();
+
     return (
-        <IonCard>
-            <IonGrid>
-                <IonRow>
-                    <IonCol size="auto"><img alt="Silhouette of mountains" src="https://cards.scryfall.io/small/front/c/e/ced4c824-2dfc-42ae-84e6-09f8e3f51b5b.jpg?1584832255" /></IonCol>
+        <IonItemSliding key={card.id}>
+            <IonItem>
+                <IonRow onClick={() => {
+                    cardClickHandler(card.id)
+                    history.push('/tab3')
+                }
+                }>
+                    <IonCol size="auto"><img alt={card.name} src={card.image_uris.small} /></IonCol>
                     <IonCol>            <IonCardHeader>
-                        <IonCardTitle>Card Title</IonCardTitle>
-                        <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+                        <IonCardTitle>{card.name}</IonCardTitle>
                     </IonCardHeader>
                         <IonCardContent>
-
-                            Here's a small text description for the card content. Nothing more, nothing less.
-                            <br /> <br />
-                            <IonButton color="primary">CARD DETAIL</IonButton>
-                        </IonCardContent></IonCol>
+                            {card.oracle_text}
+                        </IonCardContent>
+                    </IonCol>
                 </IonRow>
-            </IonGrid>
-
-
-        </IonCard>
+            </IonItem>
+            <IonItemOptions>
+                <IonItemOption color="danger" onClick={() => cardDeleteHandler(card.id)}>Delete</IonItemOption>
+            </IonItemOptions>
+        </IonItemSliding>
     );
 }
 export default CardRow;

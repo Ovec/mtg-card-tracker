@@ -1,12 +1,24 @@
+import { useHistory } from "react-router-dom";
 import { IonBackButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonContent, IonFab, IonFabButton, IonFabList, IonHeader, IonIcon, IonProgressBar, IonTitle, IonToolbar } from '@ionic/react';
-import { cart, chevronUpCircle, globe, remove } from 'ionicons/icons';
+import { add, cart, chevronUpCircle, globe, remove } from 'ionicons/icons';
+import { Dispatch, SetStateAction } from 'react';
 import CardFaceDisplay from './CardFaceComponent';
 import CardFaceList from './CardFaceListComponent';
 import CardLegalities from './CardLegalities';
 import CardSet from './CardSetComponent';
 import { Card } from './CardType';
 
-const CardDetail: React.FC<{ cardDetail: Card; loading: boolean }> = ({ cardDetail, loading }) => {
+
+
+
+const CardDetail: React.FC<{
+    cardDetail: Card;
+    loading: boolean,
+    inList: boolean,
+    handler: Dispatch<SetStateAction<any>>
+}> = ({ cardDetail, loading, inList, handler }) => {
+    const history = useHistory();
+
     return loading || !cardDetail.name ? (<IonHeader>
         <IonToolbar>
             <IonButtons slot="start">
@@ -45,7 +57,6 @@ const CardDetail: React.FC<{ cardDetail: Card; loading: boolean }> = ({ cardDeta
                                 artist_id: cardDetail.artist,
                             }} key={cardDetail.name} />
                     }
-
                     <CardSet set={cardDetail.set_name} setUrl={cardDetail.scryfall_set_uri} />
                     <CardLegalities legalities={cardDetail.legalities} />
                 </IonCardContent>
@@ -55,9 +66,17 @@ const CardDetail: React.FC<{ cardDetail: Card; loading: boolean }> = ({ cardDeta
                     <IonIcon icon={chevronUpCircle}></IonIcon>
                 </IonFabButton>
                 <IonFabList side="top">
-                    <IonFabButton color="danger">
-                        <IonIcon icon={remove}></IonIcon>
-                    </IonFabButton>
+
+                    {inList ? <IonFabButton color="danger" onClick={() => {
+                        handler(cardDetail)
+                        history.push('/tab1')
+                    }}><IonIcon icon={remove}></IonIcon></IonFabButton> :
+                        <IonFabButton color="success" onClick={() => {
+                            handler(cardDetail)
+                            history.push('/tab1')
+                        }}><IonIcon icon={add}></IonIcon></IonFabButton>}
+
+
                     {cardDetail.purchase_uris?.cardmarket
                         && <IonFabButton color="success" href={cardDetail.purchase_uris.cardmarket}><IonIcon icon={cart}></IonIcon>
                         </IonFabButton>}
