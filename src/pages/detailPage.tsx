@@ -34,13 +34,11 @@ const DetailPage: React.FC<{
         <CardDetail cardDetail={cardDetail as Card}
           loading={loading}
           handler={localCard ? async (card) => {
-            console.warn("delete from list trigger")
             let updatedCardlist = cardList.filter(c => c.id !== card.id)
             await save(updatedCardlist)
             setCardList(updatedCardlist)
 
           } : async (card) => {
-            console.warn("add to list trigger")
             await save([...cardList, card])
             setCardList([...cardList, card])
 

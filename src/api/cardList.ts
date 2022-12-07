@@ -11,7 +11,7 @@ const getCardList = async (
         setLoading(false)
 
     } catch (error) {
-        console.warn(error)
+        console.error(error)
     }
 
 }

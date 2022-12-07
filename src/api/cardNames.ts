@@ -20,7 +20,7 @@ const fetchCardNames = async (setCardNames: any) => {
             setCardNames(JSON.parse(await get("cardNames") as string));
         }
     } catch (error) {
-        console.warn(error)
+        console.error(error)
     }
 
 }

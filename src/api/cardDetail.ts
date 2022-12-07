@@ -10,13 +10,12 @@ const fetchCard = async (searchTerm: string,
 
     try {
         setLoading(true)
-        console.warn('Fetching - ', searchTerm)
         const response = await axios.get(`https://api.scryfall.com/cards/named?exact=${searchTerm}`)
         setCardDetail(response.data);
         setLoading(false)
 
     } catch (error) {
-        console.warn(error)
+        console.error(error)
     }
 
 }

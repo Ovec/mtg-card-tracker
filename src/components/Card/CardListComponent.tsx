@@ -13,7 +13,6 @@ const CardList: React.FC<{
     return <IonList>{cards.map(card => {
         return <CardRow card={card} key={card.id}
             cardDeleteHandler={() => {
-                console.warn("delete from list trigger")
                 let updatedCardlist = cards.filter(c => c.id !== card.id)
                 setCardList(updatedCardlist)
                 save(updatedCardlist)
