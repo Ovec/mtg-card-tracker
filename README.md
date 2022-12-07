@@ -43,5 +43,5 @@ Start the server
 
  - [Scryfall](https://scryfall.com/)
  - [Wizards of the coast](https://magic.wizards.com/en)
- - [Alpha Investments](https://www.youtube.com/@AlphaInvestments69)
+ - [🌮🌮🌮 to Timmies](https://www.youtube.com/@AlphaInvestments69)
 
