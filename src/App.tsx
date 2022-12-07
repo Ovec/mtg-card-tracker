@@ -51,7 +51,7 @@ const App: React.FC = () => {
   return <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route exact path="/tab1">
+        <Route exact path="/list">
           <ListPage loading={loading}
             cardList={cardList}
             setLoading={setLoading}
@@ -59,7 +59,7 @@ const App: React.FC = () => {
             setSearchTerm={setSearchTerm}
           />
         </Route>
-        <Route path="/tab3">
+        <Route path="/detail">
           <DetailPage
             loading={loading}
             setLoading={setLoading}
@@ -71,7 +71,7 @@ const App: React.FC = () => {
 
           />
         </Route>
-        <Route path="/tab4">
+        <Route path="/search">
           <SearchPage
             loading={loading}
             setLoading={setLoading}
@@ -79,7 +79,7 @@ const App: React.FC = () => {
           />
         </Route>
         <Route exact path="/">
-          <Redirect to="/tab1" />
+          <Redirect to="/list" />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

@@ -3,7 +3,7 @@ import { search } from "ionicons/icons";
 
 const SearchButton = () => {
     return (
-        <IonButton routerLink={"/tab4"}>
+        <IonButton routerLink={"/search"}>
             <IonIcon slot="start" icon={search}></IonIcon>
             CARD SEARCH
         </IonButton>

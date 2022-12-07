@@ -19,7 +19,7 @@ const CardRow: React.FC<{
             <IonItem>
                 <IonRow onClick={() => {
                     cardClickHandler(card.id)
-                    history.push('/tab3')
+                    history.push('/detail')
                 }
                 }>
                     <IonCol size="auto"><img alt={card.name} src={card.image_uris.small} /></IonCol>

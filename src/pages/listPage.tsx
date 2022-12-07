@@ -28,7 +28,7 @@ const ListPage: React.FC<{
       </IonContent>
       {cardList.length > 0 &&
         <IonTabBar slot="bottom">
-          <IonTabButton tab="tab4" href="/tab4">
+          <IonTabButton tab="tab4" href="/search">
             <IonIcon icon={search} />
             <IonLabel>Search</IonLabel>
           </IonTabButton>

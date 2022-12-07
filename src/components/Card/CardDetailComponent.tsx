@@ -66,11 +66,11 @@ const CardDetail: React.FC<{
 
                     {inList ? <IonFabButton color="danger" onClick={() => {
                         handler(cardDetail)
-                        history.push('/tab1')
+                        history.push('/list')
                     }}><IonIcon icon={remove}></IonIcon></IonFabButton> :
                         <IonFabButton color="success" onClick={() => {
                             handler(cardDetail)
-                            history.push('/tab1')
+                            history.push('/list')
                         }}><IonIcon icon={add}></IonIcon></IonFabButton>}
 
 

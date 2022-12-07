@@ -11,7 +11,7 @@ const SearchResults: React.FC<{
             <IonContent>
                 <IonList>
                     {selectedCardNames.map(name => {
-                        return <IonItem routerLink={"/tab3"}
+                        return <IonItem routerLink={"/detail"}
                             key={name}
                             onClick={() => setSearchTerm(name)}>
                             {name}
